@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nail Paradise - Premium Nagelstudio</title>
+    <link href="./assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./assets/fontawesome/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <!-- Updated to elegant serif fonts matching Noda template style -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <!-- Simplified header matching Noda template clean style -->
     <header class="header">
-        <div class="container">
+        <div class="n-container">
             <div class="header-content">
                 <div class="logo">
                     <h1>NAIL PARADISE</h1>
@@ -38,210 +44,460 @@
         </div>
     </header>
 
-    <!-- Full-screen hero section with background image matching Noda template -->
+    <!-- Enhanced hero section with floating elements and modern animations -->
     <section id="home" class="hero">
         <div class="hero-background"></div>
         <div class="hero-overlay"></div>
-        <div class="container">
+        <div class="floating-elements">
+            <div class="floating-element element-1"></div>
+            <div class="floating-element element-2"></div>
+            <div class="floating-element element-3"></div>
+            <div class="floating-element element-4"></div>
+        </div>
+        <div class="n-container">
             <div class="hero-content">
+                <div class="hero-badge">Premium Nagelstudio</div>
                 <h1 class="hero-title">Nail Paradise</h1>
-                <p class="hero-subtitle">Willkommen in unserem Premium Nagelstudio. Hier treffen Schönheit und Perfektion aufeinander.</p>
+                <p class="hero-subtitle">Willkommen in unserem Premium Nagelstudio. Hier treffen Schönheit und
+                    Perfektion aufeinander.</p>
                 <div class="hero-text">
                     <p>Erleben Sie professionelle Nagelpflege auf höchstem Niveau in luxuriöser Atmosphäre.</p>
                 </div>
-                <div class="hero-button">
-                    <a href="#services" class="btn-services">OUR SERVICES</a>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn-services primary">OUR SERVICES</a>
+                    <a href="#contact" class="btn-services secondary">TERMIN BUCHEN</a>
                 </div>
             </div>
         </div>
-        <!-- Added scroll indicator matching Noda template -->
+        <!-- Enhanced scroll indicator -->
         <div class="scroll-indicator">
-            <div class="scroll-dots">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
             </div>
+            <span class="scroll-text">Scroll Down</span>
         </div>
     </section>
 
-    <!-- About section with full-width image background -->
-    <section id="about" class="about-section">
-        <div class="container">
+    <!-- Enhanced about section with gradient cards and modern layout -->
+    <!-- <section id="about" class="about-section">
+        <div class="about-overlay"></div>
+        <div class="section-bg-pattern"></div>
+        <div class="n-container">
             <div class="about-content">
-                <div class="about-text">
-                    <h2 class="section-title">Über uns</h2>
-                    <p class="about-description">
-                        Seit über 10 Jahren verwöhnen wir unsere Kunden mit professioneller Nagelpflege 
-                        in entspannter Atmosphäre. Unser erfahrenes Team verwendet nur hochwertige 
-                        Produkte und modernste Techniken für perfekte Ergebnisse.
-                    </p>
-                    <div class="about-features">
-                        <div class="feature-item">
-                            <span class="feature-number">10+</span>
-                            <span class="feature-text">Jahre Erfahrung</span>
+                <div class="section-header">
+                    <span class="section-badge">Über uns</span>
+                    <h2 class="section-title" style="color: #fff;" >Perfektion in jedem Detail</h2>
+                    <p class="section-subtitle">Seit über 10 Jahren verwöhnen wir unsere Kunden mit professioneller Nagelpflege in entspannter Atmosphäre.</p>
+                </div>
+                
+                <div class="about-grid">
+                    <div class="about-text-card">
+                        <div class="card-gradient"></div>
+                        <div class="card-content">
+                            <h3>Unsere Mission</h3>
+                            <p>Unser erfahrenes Team verwendet nur hochwertige Produkte und modernste Techniken für perfekte Ergebnisse. Jeder Besuch wird zu einem entspannenden Erlebnis.</p>
+                            <div class="tech-features">
+                                <div class="tech-item">
+                                    <div class="tech-icon">💎</div>
+                                    <span>Premium Produkte</span>
+                                </div>
+                                <div class="tech-item">
+                                    <div class="tech-icon">🔬</div>
+                                    <span>Modernste Technik</span>
+                                </div>
+                                <div class="tech-item">
+                                    <div class="tech-icon">✨</div>
+                                    <span>Hygiene Standards</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="feature-item">
-                            <span class="feature-number">1200+</span>
-                            <span class="feature-text">Zufriedene Kunden</span>
+                    </div>
+                    
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <div class="stat-gradient"></div>
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">Jahre Erfahrung</div>
+                            <div class="stat-progress">
+                                <div class="progress-bar" data-width="100"></div>
+                            </div>
                         </div>
-                        <div class="feature-item">
-                            <span class="feature-number">100%</span>
-                            <span class="feature-text">Hygiene Standards</span>
+                        <div class="stat-card">
+                            <div class="stat-gradient"></div>
+                            <div class="stat-number">1200+</div>
+                            <div class="stat-label">Zufriedene Kunden</div>
+                            <div class="stat-progress">
+                                <div class="progress-bar" data-width="95"></div>
+                            </div>
                         </div>
+                        <div class="stat-card">
+                            <div class="stat-gradient"></div>
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Hygiene Standards</div>
+                            <div class="stat-progress">
+                                <div class="progress-bar" data-width="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <section class="py-5 bg-food">
+        <div class="n-container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Ambiente</h2>
+                    <div class="section-divider"></div>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="gallery-item-4">
+                        <img src="./images/sugaring.jpg" width="400" height="300" alt="Restaurant Interior"
+                            class="img-fluid rounded shadow">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="gallery-item-4">
+                        <img src="/images/pink_nail.jpg" width="400" height="300" alt="Dining Area"
+                            class="img-fluid rounded shadow">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="gallery-item-4">
+                        <img src="/images/pedicure.jpg" width="400" height="300" alt="Kitchen"
+                            class="img-fluid rounded shadow">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="gallery-item-4">
+                        <img src="/images/massage.jpg" width="400" height="300" alt="Garden Area"
+                            class="img-fluid rounded shadow">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services section with clean card layout -->
+    <!-- Enhanced services section with modern cards and hover effects -->
     <section id="services" class="services-section">
-        <div class="container">
+        <div class="n-container">
             <div class="section-header">
-                <h2 class="section-title">Unsere Services</h2>
-                <p class="section-subtitle">Professionelle Nagelpflege für jeden Anlass</p>
+                <span class="section-badge">Services</span>
+                <h2 class="section-title" style="color: #fff;">Unsere Premium Services</h2>
+                <p class="section-subtitle">Professionelle Nagelpflege für jeden Anlass mit modernster Technologie</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="./images/Headerbild_fuer-Perlach-Plaza_LAmour-Beauty-scaled.jpg" width="400" height="300" alt="Maniküre">
-                    </div>
-                    <div class="service-content">
-                        <h3>Maniküre</h3>
-                        <p>Klassische und moderne Maniküre mit hochwertigen Produkten für gepflegte Hände.</p>
-                        <span class="service-price">ab 25€</span>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="./images/headerbild_fuer-perlach-plaza_lamour-beauty-scaled.jpg" width="400" height="300" alt="Pediküre">
-                    </div>
-                    <div class="service-content">
-                        <h3>Pediküre</h3>
-                        <p>Entspannende Fußpflege für gepflegte und gesunde Füße in luxuriöser Atmosphäre.</p>
-                        <span class="service-price">ab 30€</span>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="./images/headerbild_fuer-perlach-plaza_lamour-beauty-scaled.jpg" width="400" height="300" alt="Gel Nägel">
-                    </div>
-                    <div class="service-content">
-                        <h3>Gel Nägel</h3>
-                        <p>Langanhaltende Gel-Modellage in verschiedenen Farben und Designs.</p>
-                        <span class="service-price">ab 40€</span>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="./images/headerbild_fuer-perlach-plaza_lamour-beauty-scaled.jpg" width="400" height="300" alt="Nail Art">
-                    </div>
-                    <div class="service-content">
-                        <h3>Nail Art</h3>
-                        <p>Kreative Nageldesigns und individuelle Kunstwerke nach Ihren Wünschen.</p>
-                        <span class="service-price">ab 15€</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery section with masonry layout -->
-    <section id="gallery" class="gallery-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Galerie</h2>
-                <p class="section-subtitle">Lassen Sie sich von unseren Arbeiten inspirieren</p>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="./images/headerbild_fuer-perlach-plaza_lamour-beauty-scaled.jpg" width="400" height="300" alt="Nail Art 1">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Elegant Design</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="./images/headerbild_fuer-perlach-plaza_lamour-beauty-scaled.jpg" width="300" height="300" alt="Nail Art 2">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">French Maniküre</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="./images/Headerbild_fuer-Perlach-Plaza_LAmour-Beauty-scaled.jpg" width="300" height="350" alt="Nail Art 3">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Bunte Designs</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="./images/headerbild_fuer-perlach-plaza_lamour-beauty-scaled.jpg" width="300" height="300" alt="Nail Art 4">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Glitzer Effekte</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="./images/headerbild_fuer-perlach-plaza_lamour-beauty-scaled.jpg" width="400" height="300" alt="Nail Art 5">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Hochzeit Special</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="./images/headerbild_fuer-perlach-plaza_lamour-beauty-scaled.jpg" width="300" height="300" alt="Nail Art 6">
-                    <div class="gallery-overlay">
-                        <span class="gallery-title">Saisonale Designs</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact section with split layout -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h2 class="section-title">Kontakt</h2>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <h4>Adresse</h4>
-                            <p>Musterstraße 123<br>12345 Musterstadt</p>
-                        </div>
-                        <div class="contact-item">
-                            <h4>Telefon</h4>
-                            <p>0123 456 789</p>
-                        </div>
-                        <div class="contact-item">
-                            <h4>E-Mail</h4>
-                            <p>info@nailparadise.de</p>
-                        </div>
-                        <div class="contact-item">
-                            <h4>Öffnungszeiten</h4>
-                            <div class="opening-hours">
-                                <div class="hours-row">
-                                    <span>Mo - Fr:</span>
-                                    <span>9:00 - 19:00</span>
+            <div class="nail-services-grid">
+                <div class="nail-service-card">
+                    <div class="nail-card-inner">
+                        <!-- Front Side -->
+                        <div class="nail-card-front">
+                            <div class="nail-service-image">
+                                <img src="./images/manikure.jpg" alt="Premium Maniküre">
+                                <div class="nail-overlay"></div>
+                                <div class="nail-service-title">
+                                    <h3>Premium Maniküre</h3>
+                                    <div class="nail-service-badge">Beliebt</div>
                                 </div>
-                                <div class="hours-row">
-                                    <span>Samstag:</span>
-                                    <span>9:00 - 17:00</span>
-                                </div>
-                                <div class="hours-row">
-                                    <span>Sonntag:</span>
-                                    <span>Geschlossen</span>
+                            </div>
+                        </div>
+
+                        <!-- Back Side -->
+                        <div class="nail-card-back">
+                            <div class="nail-service-content">
+                                <div class="nail-service-icon">💅</div>
+                                <h3>Premium Maniküre</h3>
+                                <p>Klassische und moderne Maniküre mit hochwertigen Produkten für gepflegte Hände.
+                                    Inklusive Handmassage und Nagelpflege.</p>
+                                
+                                <div class="nail-service-footer">
+                                    <span class="nail-service-price">ab 25€</span>
+                                    <button class="nail-service-btn">Buchen</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <h3>Nachricht senden</h3>
-                    <form id="contactForm">
-                        <div class="form-row">
-                            <input type="text" name="name" placeholder="Name" required>
-                            <input type="email" name="email" placeholder="E-Mail" required>
+
+                <div class="nail-service-card">
+                    <div class="nail-card-inner">
+                        <!-- Front Side -->
+                        <div class="nail-card-front">
+                            <div class="nail-service-image">
+                                <img src="./images/pedicure.jpg" alt="Luxury Pediküre">
+                                <div class="nail-overlay"></div>
+                                <div class="nail-service-title">
+                                    <h3>Luxury Pediküre</h3>
+                                    <div class="nail-service-badge">Entspannung</div>
+                                </div>
+                            </div>
                         </div>
-                        <input type="tel" name="phone" placeholder="Telefon">
-                        <textarea name="message" placeholder="Nachricht" rows="6" required></textarea>
-                        <button type="submit" class="btn-submit">Nachricht senden</button>
+
+                        <!-- Back Side -->
+                        <div class="nail-card-back">
+                            <div class="nail-service-content">
+                                <div class="nail-service-icon">🦶</div>
+                                <h3>Luxury Pediküre</h3>
+                                <p>Entspannende Fußpflege für gepflegte und gesunde Füße in luxuriöser Atmosphäre mit
+                                    Wellness-Erlebnis.</p>
+                                
+                                <div class="nail-service-footer">
+                                    <span class="nail-service-price">ab 30€</span>
+                                    <button class="nail-service-btn">Buchen</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nail-service-card">
+                    <div class="nail-card-inner">
+                        <!-- Front Side -->
+                        <div class="nail-card-front">
+                            <div class="nail-service-image">
+                                <img src="./images/nail_hand_02.jpg" alt="Gel Modellage">
+                                <div class="nail-overlay"></div>
+                                <div class="nail-service-title">
+                                    <h3>Gel Modellage</h3>
+                                    <div class="nail-service-badge">Langanhaltend</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Back Side -->
+                        <div class="nail-card-back">
+                            <div class="nail-service-content">
+                                <div class="nail-service-icon">💎</div>
+                                <h3>Gel Modellage</h3>
+                                <p>Langanhaltende Gel-Modellage in verschiedenen Farben und Designs mit bis zu 4 Wochen
+                                    Haltbarkeit.</p>
+                                
+                                <div class="nail-service-footer">
+                                    <span class="nail-service-price">ab 40€</span>
+                                    <button class="nail-service-btn">Buchen</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nail-service-card">
+                    <div class="nail-card-inner">
+                        <!-- Front Side -->
+                        <div class="nail-card-front">
+                            <div class="nail-service-image">
+                                <img src="./images/naildesign.webp" alt="Artistic Nail Art">
+                                <div class="nail-overlay"></div>
+                                <div class="nail-service-title">
+                                    <h3>Artistic Nail Art</h3>
+                                    <div class="nail-service-badge">Kreativ</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Back Side -->
+                        <div class="nail-card-back">
+                            <div class="nail-service-content">
+                                <div class="nail-service-icon">🎨</div>
+                                <h3>Artistic Nail Art</h3>
+                                <p>Kreative Nageldesigns und individuelle Kunstwerke nach Ihren Wünschen von unseren
+                                    Nail-Art Experten.</p>
+                                
+                                <div class="nail-service-footer">
+                                    <span class="nail-service-price">ab 15€</span>
+                                    <button class="nail-service-btn">Buchen</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced gallery section with modern grid and lightbox effect -->
+    <section id="gallery" class="gallery-section">
+        <div class="n-container">
+            <div class="section-header">
+                <span class="section-badge">Portfolio</span>
+                <h2 class="section-title" style="color: #fff;">Unsere Kunstwerke</h2>
+                <p class="section-subtitle">Lassen Sie sich von unseren Arbeiten inspirieren</p>
+            </div>
+
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">Alle</button>
+                <button class="filter-btn" data-filter="manicure">Maniküre</button>
+                <button class="filter-btn" data-filter="pedicure">Pediküre</button>
+                <button class="filter-btn" data-filter="nailart">Nail Art</button>
+            </div>
+
+            <div class="gallery-grid modern">
+                <div class="gallery-item" data-category="manicure">
+                    <div class="gallery-gradient"></div>
+                    <img src="/placeholder.svg?height=400&width=300" alt="Elegant Design">
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <h4 class="gallery-title">Elegant French</h4>
+                            <p class="gallery-category">Maniküre</p>
+                            <button class="gallery-btn">Vergrößern</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nailart">
+                    <div class="gallery-gradient"></div>
+                    <img src="/placeholder.svg?height=350&width=300" alt="Nail Art">
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <h4 class="gallery-title">Geometric Art</h4>
+                            <p class="gallery-category">Nail Art</p>
+                            <button class="gallery-btn">Vergrößern</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="pedicure">
+                    <div class="gallery-gradient"></div>
+                    <img src="/placeholder.svg?height=300&width=300" alt="Pediküre">
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <h4 class="gallery-title">Summer Vibes</h4>
+                            <p class="gallery-category">Pediküre</p>
+                            <button class="gallery-btn">Vergrößern</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nailart">
+                    <div class="gallery-gradient"></div>
+                    <img src="/placeholder.svg?height=350&width=300" alt="Glitzer">
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <h4 class="gallery-title">Glitzer Magic</h4>
+                            <p class="gallery-category">Nail Art</p>
+                            <button class="gallery-btn">Vergrößern</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="manicure">
+                    <div class="gallery-gradient"></div>
+                    <img src="./images/manikure.jpg" height="300" width="400" alt="Hochzeit">
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <h4 class="gallery-title">Bridal Elegance</h4>
+                            <p class="gallery-category">Maniküre</p>
+                            <button class="gallery-btn">Vergrößern</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nailart">
+                    <div class="gallery-gradient"></div>
+                    <img src="/placeholder.svg?height=300&width=300" alt="Saisonal">
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <h4 class="gallery-title">Seasonal Style</h4>
+                            <p class="gallery-category">Nail Art</p>
+                            <button class="gallery-btn">Vergrößern</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced contact section with modern form design -->
+    <section id="contact" class="contact-section">
+        <div class="n-container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="section-header">
+                        <span class="section-badge">Kontakt</span>
+                        <h2 class="section-title" style="color: #fff;">Vereinbaren Sie Ihren Termin</h2>
+                    </div>
+
+                    <div class="contact-cards">
+                        <div class="contact-card">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-details">
+                                <h4>Adresse</h4>
+                                <p>Musterstraße 123<br>12345 Musterstadt</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-details">
+                                <h4>Telefon</h4>
+                                <p>0123 456 789</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-details">
+                                <h4>E-Mail</h4>
+                                <p>info@nailparadise.de</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-card hours-card">
+                            <div class="contact-icon">🕒</div>
+                            <div class="contact-details">
+                                <h4>Öffnungszeiten</h4>
+                                <div class="opening-hours">
+                                    <div class="hours-row">
+                                        <span>Mo - Fr:</span>
+                                        <span>9:00 - 19:00</span>
+                                    </div>
+                                    <div class="hours-row">
+                                        <span>Samstag:</span>
+                                        <span>9:00 - 17:00</span>
+                                    </div>
+                                    <div class="hours-row">
+                                        <span>Sonntag:</span>
+                                        <span>Geschlossen</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <div class="form-header">
+                        <h3>Nachricht senden</h3>
+                        <p>Wir melden uns innerhalb von 24 Stunden bei Ihnen</p>
+                    </div>
+                    <form id="contactForm" class="modern-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" name="name" id="name" required>
+                                <label for="name">Name *</label>
+                                <div class="form-line"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" id="email" required>
+                                <label for="email">E-Mail *</label>
+                                <div class="form-line"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" id="phone">
+                            <label for="phone">Telefon</label>
+                            <div class="form-line"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" id="message" rows="6" required></textarea>
+                            <label for="message">Nachricht *</label>
+                            <div class="form-line"></div>
+                        </div>
+                        <button type="submit" class="btn-submit modern">
+                            <span class="btn-text">Nachricht senden</span>
+                            <div class="btn-gradient"></div>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -250,7 +506,7 @@
 
     <!-- Simplified footer -->
     <footer class="footer">
-        <div class="container">
+        <div class="n-container">
             <div class="footer-content">
                 <div class="footer-left">
                     <h3>Nail Paradise</h3>
@@ -270,7 +526,9 @@
         </div>
     </footer>
 
+    <script src="./assets/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
 </body>
+
 </html>

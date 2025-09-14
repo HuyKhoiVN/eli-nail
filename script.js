@@ -1,53 +1,72 @@
+const $ = require("jquery") // Declare the $ variable
 
 $(document).ready(() => {
   function initializeEntranceAnimations() {
-    // Add animation classes to elements on page load
     setTimeout(() => {
-      // Hero section animations with text running effect
-      $(".hero-title").addClass("animate-text-running animate-delay-1")
-      $(".hero-subtitle").addClass("animate-fade-up animate-delay-2")
-      $(".stat-item").each(function (index) {
-        $(this).addClass("animate-fade-scale animate-delay-" + (index + 3))
+      // Hero section animations with enhanced effects
+      $(".hero-badge").addClass("animate-fade-scale animate-delay-1")
+      $(".hero-title").addClass("animate-fade-up animate-delay-2")
+      $(".hero-subtitle").addClass("animate-fade-up animate-delay-3")
+      $(".hero-text").addClass("animate-fade-up animate-delay-4")
+      $(".hero-buttons .btn-services").each(function (index) {
+        $(this).addClass("animate-slide-left animate-delay-" + (index + 5))
       })
-      $(".hero-buttons .btn").each(function (index) {
-        $(this).addClass("animate-slide-left animate-delay-" + (index + 6))
+
+      // Floating elements animation
+      $(".floating-element").each(function (index) {
+        $(this).css("animation-delay", index * 0.5 + "s")
       })
     }, 100)
 
     // Section headers with stagger
-    $(".section-title").addClass("animate-fade-up animate-delay-1")
-    $(".section-subtitle").addClass("animate-fade-up animate-delay-2")
+    $(".section-badge").addClass("animate-fade-scale animate-delay-1")
+    $(".section-title").addClass("animate-fade-up animate-delay-2")
+    $(".section-subtitle").addClass("animate-fade-up animate-delay-3")
   }
 
   function animateOnScroll() {
     const windowTop = $(window).scrollTop()
     const windowBottom = windowTop + $(window).height()
 
-    // Service cards with stagger animation
-    $(".service-card").each(function (index) {
+    // Service cards with enhanced stagger animation
+    $(".service-card.modern").each(function (index) {
       const elementTop = $(this).offset().top
       const elementBottom = elementTop + $(this).outerHeight()
 
       if (elementBottom > windowTop && elementTop < windowBottom - 100) {
         setTimeout(() => {
           $(this).addClass("animate-fade-scale")
-        }, index * 100) // Stagger delay
+          // Animate progress bars
+          $(this)
+            .find(".progress-bar")
+            .each(function () {
+              const width = $(this).data("width")
+              $(this).css("width", width + "%")
+            })
+        }, index * 150)
       }
     })
 
-    // Feature cards animation
-    $(".feature-card").each(function (index) {
+    // About section cards
+    $(".about-text-card, .stat-card").each(function (index) {
       const elementTop = $(this).offset().top
       const elementBottom = elementTop + $(this).outerHeight()
 
       if (elementBottom > windowTop && elementTop < windowBottom - 100) {
         setTimeout(() => {
-          $(this).addClass("animate-slide-right")
-        }, index * 100)
+          $(this).addClass("animate-fade-scale")
+          // Animate progress bars
+          $(this)
+            .find(".progress-bar")
+            .each(function () {
+              const width = $(this).data("width")
+              $(this).css("width", width + "%")
+            })
+        }, index * 200)
       }
     })
 
-    // Gallery items animation
+    // Gallery items with enhanced animation
     $(".gallery-item").each(function (index) {
       const elementTop = $(this).offset().top
       const elementBottom = elementTop + $(this).outerHeight()
@@ -59,27 +78,27 @@ $(document).ready(() => {
       }
     })
 
-    // Testimonial cards animation
-    $(".testimonial-card").each(function (index) {
+    // Contact cards animation
+    $(".contact-card").each(function (index) {
+      const elementTop = $(this).offset().top
+      const elementBottom = elementTop + $(this).outerHeight()
+
+      if (elementBottom > windowTop && elementTop < windowBottom - 100) {
+        setTimeout(() => {
+          $(this).addClass("animate-slide-right")
+        }, index * 100)
+      }
+    })
+
+    // Tech items animation
+    $(".tech-item").each(function (index) {
       const elementTop = $(this).offset().top
       const elementBottom = elementTop + $(this).outerHeight()
 
       if (elementBottom > windowTop && elementTop < windowBottom - 100) {
         setTimeout(() => {
           $(this).addClass("animate-slide-left")
-        }, index * 150)
-      }
-    })
-
-    // Brand items animation
-    $(".brand-item").each(function (index) {
-      const elementTop = $(this).offset().top
-      const elementBottom = elementTop + $(this).outerHeight()
-
-      if (elementBottom > windowTop && elementTop < windowBottom - 100) {
-        setTimeout(() => {
-          $(this).addClass("animate-fade-up")
-        }, index * 80)
+        }, index * 100)
       }
     })
   }
@@ -87,10 +106,16 @@ $(document).ready(() => {
   // Initialize entrance animations
   initializeEntranceAnimations()
 
-  // Mobile Menu Toggle
   $(".mobile-menu-toggle").click(function () {
     $(this).toggleClass("active")
     $(".nav-menu").toggleClass("active")
+
+    // Add body scroll lock when menu is open
+    if ($(this).hasClass("active")) {
+      $("body").css("overflow", "hidden")
+    } else {
+      $("body").css("overflow", "auto")
+    }
   })
 
   // Smooth Scrolling for Navigation Links
@@ -126,7 +151,16 @@ $(document).ready(() => {
       $(".header").removeClass("scrolled")
     }
 
-    // Update active navigation based on scroll position
+    // Parallax effect for hero background
+    $(".hero-background").css("transform", `translateY(${$(this).scrollTop() * 0.5}px)`)
+
+    // Floating elements parallax
+    $(".floating-element").each(function (index) {
+      const speed = 0.3 + index * 0.1
+      $(this).css("transform", `translateY(${$(this).scrollTop() * speed}px)`)
+    })
+
+    // Update active navigation and animate on scroll
     updateActiveNav()
     animateOnScroll()
   })
@@ -144,32 +178,78 @@ $(document).ready(() => {
     })
   }
 
+  // Animate elements on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+            }
+        });
+    }, observerOptions);
+
+    // Observe cards and gallery items
+    const animateElements = document.querySelectorAll('.card, .gallery-item, .gallery-item-4, .contact-card, .feature-card');
+    animateElements.forEach(el => {
+        observer.observe(el);
+    });
+
+  $(".filter-btn").click(function () {
+    const filter = $(this).data("filter")
+
+    // Update active button
+    $(".filter-btn").removeClass("active")
+    $(this).addClass("active")
+
+    // Filter gallery items
+    if (filter === "all") {
+      $(".gallery-item").fadeIn(300)
+    } else {
+      $(".gallery-item").fadeOut(300)
+      $(`.gallery-item[data-category="${filter}"]`).fadeIn(300)
+    }
+  })
+
+  $(".form-group input, .form-group textarea")
+    .focus(function () {
+      $(this).parent().addClass("focused")
+    })
+    .blur(function () {
+      if ($(this).val() === "") {
+        $(this).parent().removeClass("focused")
+      }
+    })
+
+  $(".service-card.modern").hover(
+    function () {
+      $(this).find(".service-image").addClass("shimmer-effect")
+      $(this).css("transform", "translateY(-15px) scale(1.02)")
+    },
+    function () {
+      $(this).find(".service-image").removeClass("shimmer-effect")
+      $(this).css("transform", "translateY(0) scale(1)")
+    },
+  )
+
   $(".gallery-item").hover(
     function () {
       $(this).find("img").css({
-        transform: "scale(1.15)",
-        filter: "brightness(1.1)",
+        transform: "scale(1.1) rotate(2deg)",
+        filter: "brightness(1.1) contrast(1.1)",
       })
     },
     function () {
       $(this).find("img").css({
-        transform: "scale(1)",
-        filter: "brightness(1)",
+        transform: "scale(1) rotate(0deg)",
+        filter: "brightness(1) contrast(1)",
       })
     },
   )
 
-  $(".service-card").hover(
-    function () {
-      $(this).css("transform", "translateY(-12px)")
-      $(this).find(".service-icon").css("animation", "iconPulse 0.6s ease-out")
-    },
-    function () {
-      $(this).css("transform", "translateY(0)")
-    },
-  )
-
-  // Contact Form Submission
   $("#contactForm").submit(function (e) {
     e.preventDefault()
 
@@ -181,158 +261,321 @@ $(document).ready(() => {
 
     // Basic validation
     if (!name || !email || !message) {
-      alert("Bitte füllen Sie alle Pflichtfelder aus.")
+      showNotification("Bitte füllen Sie alle Pflichtfelder aus.", "error")
       return
     }
 
     // Email validation
     var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(email)) {
-      alert("Bitte geben Sie eine gültige E-Mail-Adresse ein.")
+      showNotification("Bitte geben Sie eine gültige E-Mail-Adresse ein.", "error")
       return
     }
 
-    // Simulate form submission
+    // Enhanced form submission with loading state
     var submitBtn = $(this).find('button[type="submit"]')
-    var originalText = submitBtn.text()
+    var originalText = submitBtn.find(".btn-text").text()
 
-    submitBtn.text("Wird gesendet...").prop("disabled", true)
+    submitBtn.addClass("loading")
+    submitBtn.find(".btn-text").text("Wird gesendet...")
+    submitBtn.prop("disabled", true)
 
     setTimeout(() => {
-      alert("Vielen Dank für Ihre Nachricht! Wir werden uns bald bei Ihnen melden.")
+      showNotification("Vielen Dank für Ihre Nachricht! Wir werden uns bald bei Ihnen melden.", "success")
       $("#contactForm")[0].reset()
-      submitBtn.text(originalText).prop("disabled", false)
+      $(".form-group").removeClass("focused")
+      submitBtn.removeClass("loading")
+      submitBtn.find(".btn-text").text(originalText)
+      submitBtn.prop("disabled", false)
     }, 2000)
   })
 
-  // Initial animation check
-  animateOnScroll()
+  function showNotification(message, type) {
+    const notification = $(`
+      <div class="notification ${type}">
+        <div class="notification-content">
+          <span class="notification-icon">${type === "success" ? "✓" : "⚠"}</span>
+          <span class="notification-message">${message}</span>
+        </div>
+      </div>
+    `)
 
-  function createSparkles() {
-    var sparkleContainer = $(".hero, .testimonials")
+    $("body").append(notification)
 
-    setInterval(() => {
-      sparkleContainer.each(function () {
-        var sparkle = $('<div class="sparkle"></div>')
-        sparkle.css({
-          position: "absolute",
-          left: Math.random() * 100 + "%",
-          top: Math.random() * 100 + "%",
-          width: Math.random() * 6 + 3 + "px",
-          height: Math.random() * 6 + 3 + "px",
-          background: "rgba(212, 175, 55, " + (Math.random() * 0.8 + 0.3) + ")",
-          borderRadius: "50%",
-          animation: "twinkle 3s ease-in-out infinite",
-          zIndex: 10,
-          pointerEvents: "none",
-        })
+    setTimeout(() => {
+      notification.addClass("show")
+    }, 100)
 
-        $(this).append(sparkle)
-
-        setTimeout(() => {
-          sparkle.remove()
-        }, 3000)
-      })
-    }, 400)
+    setTimeout(() => {
+      notification.removeClass("show")
+      setTimeout(() => {
+        notification.remove()
+      }, 300)
+    }, 4000)
   }
 
   $("<style>")
     .prop("type", "text/css")
     .html(`
-            .header.scrolled {
-                background: linear-gradient(135deg, rgba(44, 85, 48, 0.95), rgba(30, 58, 33, 0.98));
-                backdrop-filter: blur(15px);
-                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            }
-            
-            @keyframes twinkle {
-                0%, 100% { 
-                    opacity: 0; 
-                    transform: scale(0) rotate(0deg); 
-                }
-                50% { 
-                    opacity: 1; 
-                    transform: scale(1) rotate(180deg); 
-                }
-            }
-            
-            .sparkle {
-                box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-            }
-            
-            .service-icon:hover {
-                animation: iconPulse 0.6s ease-out !important;
-            }
-            
-            .gallery-item {
-                transition: all 0.4s ease;
-            }
-            
-            .gallery-item:hover {
-                box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
-            }
-            
-            .feature-card:hover .feature-icon {
-                animation: iconPulse 0.6s ease-out;
-            }
-            
-            .brand-item:hover {
-                background: linear-gradient(135deg, #fff, #f0f0f0);
-                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-            }
-        `)
+      .notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        padding: 15px 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        transform: translateX(400px);
+        transition: all 0.3s ease;
+        z-index: 10000;
+        max-width: 350px;
+      }
+
+      .notification.show {
+        transform: translateX(0);
+      }
+
+      .notification.success {
+        border-left: 4px solid #d4af37;
+      }
+
+      .notification.error {
+        border-left: 4px solid #e74c3c;
+      }
+
+      .notification-content {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .notification-icon {
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      .notification.success .notification-icon {
+        color: #d4af37;
+      }
+
+      .notification.error .notification-icon {
+        color: #e74c3c;
+      }
+
+      .header.scrolled {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.98));
+        backdrop-filter: blur(20px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      }
+
+      .service-card:hover .service-content {
+        transform: translateY(-5px);
+      }
+
+      .gallery-item:hover {
+        z-index: 10;
+      }
+
+      .contact-card:hover .contact-icon {
+        transform: scale(1.1) rotate(5deg);
+        background: linear-gradient(135deg, #f4d03f, #d4af37);
+      }
+
+      .tech-item:hover .tech-icon {
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+      }
+
+      @media (max-width: 768px) {
+        .notification {
+          right: 10px;
+          left: 10px;
+          max-width: none;
+          transform: translateY(-100px);
+        }
+
+        .notification.show {
+          transform: translateY(0);
+        }
+      }
+    `)
     .appendTo("head")
 
-  createSparkles()
-
-  // Booking Button Click Handler
-  $(".booking-btn, .btn-primary").click(function (e) {
-    if ($(this).attr("href") === "#booking" || $(this).text().includes("Termin")) {
+  $(".service-btn, .btn-services").click(function (e) {
+    if ($(this).text().includes("Buchen") || $(this).text().includes("TERMIN")) {
       e.preventDefault()
-      alert(
-        "Für Terminbuchungen rufen Sie uns bitte unter 0123 456 789 an oder senden Sie uns eine Nachricht über das Kontaktformular.",
+      showNotification(
+        "Für Terminbuchungen rufen Sie uns bitte unter 0123 456 789 an oder nutzen Sie unser Kontaktformular.",
+        "success",
       )
     }
   })
 
-  $(".form-group input, .form-group textarea")
-    .focus(function () {
-      $(this).parent().addClass("focused")
-      $(this).addClass("animate-fade-scale")
-    })
-    .blur(function () {
-      if ($(this).val() === "") {
-        $(this).parent().removeClass("focused")
-      }
-    })
+  // Initial animation check
+  animateOnScroll()
 
+  function createEnhancedSparkles() {
+    const sparkleContainers = $(".hero, .about-section, .services-section")
+
+    setInterval(() => {
+      sparkleContainers.each(function () {
+        if (Math.random() > 0.7) {
+          // Reduced frequency for better performance
+          const sparkle = $('<div class="enhanced-sparkle"></div>')
+          sparkle.css({
+            position: "absolute",
+            left: Math.random() * 100 + "%",
+            top: Math.random() * 100 + "%",
+            width: Math.random() * 8 + 4 + "px",
+            height: Math.random() * 8 + 4 + "px",
+            background: `linear-gradient(45deg, 
+              rgba(212, 175, 55, ${Math.random() * 0.8 + 0.3}), 
+              rgba(244, 208, 63, ${Math.random() * 0.6 + 0.4}))`,
+            borderRadius: "50%",
+            animation: "enhancedTwinkle 4s ease-in-out infinite",
+            zIndex: 5,
+            pointerEvents: "none",
+            boxShadow: `0 0 ${Math.random() * 20 + 10}px rgba(212, 175, 55, 0.6)`,
+          })
+
+          $(this).append(sparkle)
+
+          setTimeout(() => {
+            sparkle.remove()
+          }, 4000)
+        }
+      })
+    }, 800)
+  }
+
+  // Enhanced sparkle animation
   $("<style>")
     .prop("type", "text/css")
     .html(`
-            .form-group.focused input,
-            .form-group.focused textarea {
-                border: 2px solid transparent;
-                background: linear-gradient(white, white) padding-box,
-                           linear-gradient(135deg, #d4af37, #f4d03f) border-box;
-                box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
-                transform: scale(1.02);
-            }
-            
-            .form-group input,
-            .form-group textarea {
-                transition: all 0.3s ease;
-            }
-        `)
+      @keyframes enhancedTwinkle {
+        0%, 100% { 
+          opacity: 0; 
+          transform: scale(0) rotate(0deg); 
+        }
+        25% { 
+          opacity: 0.8; 
+          transform: scale(0.5) rotate(90deg); 
+        }
+        50% { 
+          opacity: 1; 
+          transform: scale(1) rotate(180deg); 
+        }
+        75% { 
+          opacity: 0.6; 
+          transform: scale(0.8) rotate(270deg); 
+        }
+      }
+    `)
     .appendTo("head")
 
-  $(window).scroll(function () {
-    const scrolled = $(this).scrollTop()
-    const parallaxElements = $(".hero-bg-image, .section-bg-image")
+  createEnhancedSparkles()
+})
 
-    parallaxElements.each(function () {
-      const speed = 0.5
-      const yPos = -(scrolled * speed)
-      $(this).css("transform", `translateY(${yPos}px)`)
+$(document).ready(() => {
+  // Enhanced hover effects with jQuery
+  $(".nail-service-card").hover(
+    function () {
+      $(this).addClass("nail-card-hovered")
+    },
+    function () {
+      $(this).removeClass("nail-card-hovered")
+    },
+  )
+
+  // Click handler for booking buttons
+  $(".nail-service-btn").click(function (e) {
+    e.stopPropagation()
+    const serviceName = $(this).closest(".nail-service-content").find("h3").text()
+
+    // Add click animation
+    $(this).addClass("nail-btn-clicked")
+    setTimeout(() => {
+      $(this).removeClass("nail-btn-clicked")
+    }, 200)
+
+    // Simulate booking action
+    alert(`Buchung für "${serviceName}" wird geöffnet...`)
+
+    // Here you would typically redirect to booking page or open modal
+    // window.location.href = `/booking?service=${encodeURIComponent(serviceName)}`;
+  })
+
+  // Touch support for mobile devices
+  $(".nail-service-card").on("touchstart", function () {
+    $(this).addClass("nail-touch-active")
+  })
+
+  $(".nail-service-card").on("touchend", function () {
+    $(this).removeClass("nail-touch-active")
+  })
+
+  // Intersection Observer for scroll animations
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = "running"
+          }
+        })
+      },
+      {
+        threshold: 0.1,
+      },
+    )
+
+    $(".nail-service-card").each(function () {
+      observer.observe(this)
     })
+  }
+
+  // Add smooth scrolling for better UX
+  $("html").css("scroll-behavior", "smooth")
+
+  // Performance optimization: Preload images on hover
+  $(".nail-service-card").one("mouseenter", function () {
+    const img = $(this).find("img")[0]
+    if (img && !img.complete) {
+      img.loading = "eager"
+    }
   })
 })
+
+// Additional CSS classes for enhanced interactions
+const additionalStyles = `
+    .nail-card-hovered {
+        transform: translateY(-5px);
+        transition: transform 0.3s ease;
+    }
+    
+    .nail-btn-clicked {
+        transform: scale(0.95);
+        transition: transform 0.1s ease;
+    }
+    
+    .nail-touch-active .nail-card-inner {
+        transform: rotateY(180deg);
+    }
+    
+    @media (hover: none) and (pointer: coarse) {
+        .nail-service-card:hover .nail-card-inner {
+            transform: none;
+        }
+        
+        .nail-touch-active .nail-card-inner {
+            transform: rotateY(180deg);
+        }
+    }
+`
+
+// Inject additional styles
+const styleSheet = document.createElement("style")
+styleSheet.textContent = additionalStyles
+document.head.appendChild(styleSheet)
+
