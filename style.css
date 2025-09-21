@@ -38,6 +38,10 @@
   --secondary-mahogany: #8b1538; /* Mahogany Red */
   --bg-cream: #fff8dc; /* Luxury Cream */
   --bg-pearl: #f5f5dc; /* Pearl White */
+  --accent-gold: #B8860B;             /* Deep Gold */
+  --accent-bronze: #CD7F32;           /* Bronze */
+  --accent-champagne: #F7E7CE;        /* Champagne */
+  --accent-goldenrod: #D4AF37;      /* Goldenrod */
 }
 
 body {
@@ -81,7 +85,7 @@ body {
 .logo h1 {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #d4af37;
+  color: var(--accent-goldenrod);
   letter-spacing: 1px;
 }
 
@@ -89,6 +93,17 @@ body {
   display: flex;
   align-items: center;
   gap: 40px;
+}
+
+.navbar-brand {
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-champagne) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+    text-shadow: none;
 }
 
 .nav-menu {
@@ -110,7 +125,7 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
-  color: #d4af37;
+  color: var(--accent-goldenrod);
 }
 
 .header-contact {
@@ -505,8 +520,8 @@ body {
   display: inline-block;
   padding: 15px 30px;
   background: transparent;
-  border: 2px solid #d4af37;
-  color: #d4af37;
+  border: 2px solid var(--accent-goldenrod);
+  color: var(--accent-goldenrod);
   text-decoration: none;
   font-size: 12px;
   font-weight: 600;
@@ -516,7 +531,7 @@ body {
 }
 
 .btn-services:hover {
-  background: #d4af37;
+  background: var(--accent-goldenrod);
   color: #1a1a1a;
 }
 
@@ -576,7 +591,7 @@ body {
   background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(244, 208, 63, 0.3));
   border: 1px solid rgba(212, 175, 55, 0.5);
   border-radius: 25px;
-  color: #d4af37;
+  color: var(--accent-goldenrod);
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
@@ -594,13 +609,13 @@ body {
 }
 
 .btn-services.secondary {
-  background: linear-gradient(135deg, #d4af37, #f4d03f);
+  background: linear-gradient(135deg, var(--accent-goldenrod), #f4d03f);
   color: #1a1a1a;
   border: none;
 }
 
 .btn-services.secondary:hover {
-  background: linear-gradient(135deg, #f4d03f, #d4af37);
+  background: linear-gradient(135deg, #f4d03f, var(--accent-goldenrod));
   transform: translateY(-3px);
   box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
 }
@@ -626,7 +641,7 @@ body {
 .scroll-wheel {
   width: 4px;
   height: 8px;
-  background: #d4af37;
+  background: var(--accent-goldenrod);
   border-radius: 2px;
   position: absolute;
   top: 8px;
@@ -687,7 +702,7 @@ body {
 .section-badge {
   display: inline-block;
   padding: 6px 16px;
-  background: linear-gradient(135deg, #d4af37, #f4d03f);
+  background: linear-gradient(135deg, var(--accent-goldenrod), #f4d03f);
   color: var(--text-white);
   font-size: 11px;
   font-weight: 700;
@@ -721,7 +736,7 @@ body {
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(135deg, #d4af37, #f4d03f);
+  background: linear-gradient(135deg, var(--accent-goldenrod), #f4d03f);
 }
 
 .about-text-card h3 {
@@ -799,7 +814,7 @@ body {
 .stat-number {
   font-size: 3rem;
   font-weight: 700;
-  color: #d4af37;
+  color: var(--accent-goldenrod);
   margin-bottom: 10px;
   position: relative;
   z-index: 2;
@@ -828,7 +843,7 @@ body {
 
 .progress-bar {
   height: 100%;
-  background: linear-gradient(135deg, #d4af37, #f4d03f);
+  background: linear-gradient(135deg, var(--accent-goldenrod), #f4d03f);
   border-radius: 2px;
   width: 0%;
   transition: width 2s ease;
@@ -918,7 +933,7 @@ body {
   top: 20px;
   right: 20px;
   padding: 6px 12px;
-  background: linear-gradient(135deg, #d4af37, #f4d03f);
+  background: linear-gradient(135deg, var(--accent-goldenrod), #f4d03f);
   color: var(--text-white);
   font-size: 10px;
   font-weight: 700;
@@ -950,7 +965,7 @@ body {
 
 .service-btn {
   padding: 10px 20px;
-  background: linear-gradient(135deg, #d4af37, #f4d03f);
+  background: linear-gradient(135deg, var(--accent-goldenrod), #f4d03f);
   color: #1a1a1a;
   border: none;
   border-radius: 20px;
@@ -1034,7 +1049,7 @@ body {
 
 .filter-btn.active,
 .filter-btn:hover {
-  background: linear-gradient(135deg, #d4af37, #f4d03f);
+  background: linear-gradient(135deg, var(--accent-goldenrod), #f4d03f);
   color: #1a1a1a;
   border-color: transparent;
 }
@@ -1114,7 +1129,7 @@ body {
 
 .gallery-btn {
   padding: 8px 16px;
-  background: linear-gradient(135deg, #d4af37, #f4d03f);
+  background: linear-gradient(135deg, var(--accent-goldenrod), #f4d03f);
   color: #1a1a1a;
   border: none;
   border-radius: 20px;
@@ -1162,7 +1177,7 @@ body {
   font-size: 1.5rem;
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, #d4af37, #f4d03f);
+  background: linear-gradient(135deg, var(--accent-goldenrod), #f4d03f);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1233,7 +1248,7 @@ body {
 .form-group textarea:valid + label {
   top: -5px;
   font-size: 12px;
-  color: #d4af37;
+  color: var(--accent-goldenrod);
   font-weight: 600;
 }
 
@@ -1243,7 +1258,7 @@ body {
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(135deg, #d4af37, #f4d03f);
+  background: linear-gradient(135deg, var(--accent-goldenrod), #f4d03f);
   transition: width 0.3s ease;
 }
 
@@ -1275,7 +1290,7 @@ body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #d4af37, #f4d03f);
+  background: linear-gradient(135deg, var(--accent-goldenrod), #f4d03f);
   transition: left 0.3s ease;
 }
 
@@ -1314,7 +1329,7 @@ body {
 
 .footer-left h3 {
   font-size: 1.5rem;
-  color: #d4af37;
+  color: var(--accent-goldenrod);
   margin-bottom: 10px;
 }
 
@@ -1336,7 +1351,7 @@ body {
 }
 
 .social-link:hover {
-  color: #d4af37;
+  color: var(--accent-goldenrod);
 }
 
 .footer-bottom {
@@ -1606,7 +1621,7 @@ html {
   width: 20px;
   height: 20px;
   margin: -10px 0 0 -10px;
-  border: 2px solid #d4af37;
+  border: 2px solid var(--accent-goldenrod);
   border-top: 2px solid transparent;
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -2026,7 +2041,7 @@ html {
 
 .filter-btn.active,
 .filter-btn:hover {
-  background: linear-gradient(135deg, #d4af37, #f4d03f);
+  background: linear-gradient(135deg, var(--accent-goldenrod), #f4d03f);
   color: #1a1a1a;
   border-color: transparent;
   transform: translateY(-2px);
@@ -2128,7 +2143,7 @@ html {
 
 .gallery-btn {
   padding: 10px 20px;
-  background: linear-gradient(135deg, #d4af37, #f4d03f);
+  background: linear-gradient(135deg, var(--accent-goldenrod), #f4d03f);
   color: #1a1a1a;
   border: none;
   border-radius: 25px;
@@ -2228,7 +2243,7 @@ html {
   font-size: 1.4rem;
   font-weight: 600;
   margin: 0;
-  color: #d4af37;
+  color: var(--accent-goldenrod);
 }
 
 .carousel-btn {
@@ -2251,7 +2266,7 @@ html {
 }
 
 .carousel-btn:hover {
-  background: #d4af37;
+  background: var(--accent-goldenrod);
   color: #fff;
   transform: translateY(-50%) scale(1.1);
 }
@@ -2282,7 +2297,7 @@ html {
 
 .dot.active,
 .dot:hover {
-  background: #d4af37;
+  background: var(--accent-goldenrod);
   transform: scale(1.2);
 }
 
@@ -2377,7 +2392,7 @@ html {
   font-size: 2rem;
   width: 70px;
   height: 70px;
-  background: linear-gradient(135deg, #d4af37, #f4d03f);
+  background: linear-gradient(135deg, var(--accent-goldenrod), #f4d03f);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -2464,7 +2479,7 @@ html {
 }
 
 .modal-close:hover {
-  color: #d4af37;
+  color: var(--accent-goldenrod);
   transform: scale(1.1);
 }
 
@@ -2485,7 +2500,7 @@ html {
 .modal-caption h4 {
   font-size: 1.5rem;
   margin-bottom: 10px;
-  color: #d4af37;
+  color: var(--accent-goldenrod);
 }
 
 .modal-caption p {
