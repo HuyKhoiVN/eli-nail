@@ -17,42 +17,67 @@ img {
 }
 
 :root {
-  --green-100: #e6f0e6;
-  --green-200: #a9cbb0;
-  --green-300: #5f9c71;
-  --green-400: #2c5530;
-  --green-500: #1e3a21;
-  --gradient-100: linear-gradient(135deg, #e6f0e6, #a9cbb0);
-  --gradient-200: linear-gradient(135deg, #a9cbb0, #5f9c71);
-  --gradient-300: linear-gradient(135deg, #5f9c71, #2c5530);
-  --gradient-400: linear-gradient(135deg, #2c5530, #1e3a21);
-  --gradient-500: linear-gradient(135deg, #1e3a21, #0f1d11);
+  /* Elegant Brown Color Palette - Classic Luxury Theme */
+  --brown-100: #f5f1eb;      /* Light Cream Brown */
+  --brown-200: #e6d7c3;      /* Soft Tan */
+  --brown-300: #d4b896;      /* Warm Beige */
+  --brown-400: #c19e66;      /* Rich Brown */
+  --brown-500: #8b4513;      /* Saddle Brown */
+  --brown-600: #654321;      /* Dark Brown */
+  --brown-700: #4a2c17;      /* Deep Brown */
+  --brown-800: #3d2414;      /* Darkest Brown */
+  --brown-900: #2d1b0f;      /* Almost Black Brown */
+  
+  /* Sophisticated Brown Gradients */
+  --gradient-100: linear-gradient(135deg, #f5f1eb, #e6d7c3);
+  --gradient-200: linear-gradient(135deg, #e6d7c3, #d4b896);
+  --gradient-300: linear-gradient(135deg, #d4b896, #c19e66);
+  --gradient-400: linear-gradient(135deg, #c19e66, #8b4513);
+  --gradient-500: linear-gradient(135deg, #8b4513, #654321);
+  --gradient-600: linear-gradient(135deg, #654321, #4a2c17);
+  --gradient-700: linear-gradient(135deg, #4a2c17, #3d2414);
+  --gradient-800: linear-gradient(135deg, #3d2414, #2d1b0f);
+  
+  /* Luxury Overlays */
   --overlay-black: rgba(0, 0, 0, 0.5);
-  --overlay-forest: rgba(30, 58, 33, 0.6);
+  --overlay-brown: rgba(74, 44, 23, 0.6);
   --overlay-gold: rgba(193, 158, 102, 0.3);
-  --overlay-cream: rgba(243, 238, 229, 0.6);
-  --overlay-darkgreen: rgba(18, 36, 22, 0.7);
+  --overlay-cream: rgba(245, 241, 235, 0.6);
+  --overlay-dark-brown: rgba(45, 27, 15, 0.7);
+  --overlay-burgundy: rgba(139, 21, 56, 0.4);
+  
+  /* Text Colors */
   --text-white: #ffffff;
-  --text-cream: #f5f5eb;
-  --text-gold: #c19e66;
-  --text-sage: #dce5dc;
-  --text-green-soft: #9cb79f;
+  --text-cream: #f5f1eb;
+  --text-gold: #d4b896;
+  --text-warm-white: #faf8f5;
+  --text-brown-soft: #c19e66;
+  --text-dark-brown: #4a2c17;
+  
   /* Luxury Effects */
-  --shadow-gold: 0 8px 32px rgba(184, 134, 11, 0.3);
+  --shadow-gold: 0 8px 32px rgba(212, 184, 150, 0.3);
   --shadow-burgundy: 0 8px 32px rgba(139, 21, 56, 0.4);
   --shadow-deep: 0 12px 40px rgba(0, 0, 0, 0.6);
-  --glow-gold: 0 0 20px rgba(218, 165, 32, 0.5);
+  --shadow-brown: 0 8px 32px rgba(74, 44, 23, 0.4);
+  --glow-gold: 0 0 20px rgba(212, 184, 150, 0.5);
   --glow-burgundy: 0 0 25px rgba(139, 21, 56, 0.6);
+  --glow-brown: 0 0 20px rgba(193, 158, 102, 0.4);
 
-  --bg-velvet: #2c5530; /* Velvet Black */
-  --bg-charcoal: #1e3a21; /* Charcoal Brown */
-  --secondary-mahogany: #8b1538; /* Mahogany Red */
-  --bg-cream: #fff8dc; /* Luxury Cream */
-  --bg-pearl: #f5f5dc; /* Pearl White */
-  --accent-gold: #B8860B;             /* Deep Gold */
-  --accent-bronze: #CD7F32;           /* Bronze */
-  --accent-champagne: #F7E7CE;        /* Champagne */
-  --accent-goldenrod: #D4AF37;      /* Goldenrod */
+  /* Background Colors */
+  --bg-velvet: #4a2c17;      /* Rich Dark Brown */
+  --bg-charcoal: #3d2414;    /* Deep Charcoal Brown */
+  --secondary-mahogany: #8b1538; /* Mahogany Red (kept for contrast) */
+  --bg-cream: #f5f1eb;       /* Luxury Cream Brown */
+  --bg-pearl: #faf8f5;       /* Pearl White */
+  --bg-warm: #e6d7c3;        /* Warm Tan Background */
+  
+  /* Accent Colors */
+  --accent-gold: #d4b896;         /* Warm Gold */
+  --accent-bronze: #c19e66;       /* Rich Bronze */
+  --accent-champagne: #f5f1eb;    /* Champagne */
+  --accent-goldenrod: #e6d7c3;    /* Light Goldenrod */
+  --accent-copper: #b87333;       /* Copper */
+  --accent-amber: #ffbf00;        /* Amber */
 }
 
 body {
@@ -74,17 +99,18 @@ body {
   padding: 0 20px;
 }
 
-/* Clean header styling matching Noda template */
+/* Elegant header styling with brown theme */
 .header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: var(--green-500);
+  background: var(--brown-800);
   backdrop-filter: blur(10px);
   z-index: 1000;
   padding: 20px 0;
   transition: all 0.3s ease;
+  box-shadow: var(--shadow-brown);
 }
 
 .header-content {
@@ -109,7 +135,7 @@ body {
 .navbar-brand {
     font-size: 2.2rem;
     font-weight: 700;
-    background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-champagne) 100%);
+    background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-amber) 50%, var(--accent-bronze) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -136,7 +162,7 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
-  color: var(--accent-goldenrod);
+  color: var(--accent-gold);
 }
 
 .header-contact {
@@ -186,7 +212,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(44, 85, 48, 0.7), rgba(30, 58, 33, 0.8));
+  background: linear-gradient(135deg, rgba(74, 44, 23, 0.7), rgba(61, 36, 20, 0.8));
 }
 
 .hero-content {
@@ -231,7 +257,7 @@ body {
 /* Background Food Images Class */
 .bg-food {
   position: relative;
-  background: linear-gradient(135deg, var(--bg-velvet) 0%, var(--bg-charcoal) 50%, var(--glow-gold) 100%);
+  background: linear-gradient(135deg, var(--bg-velvet) 0%, var(--bg-charcoal) 50%, var(--brown-600) 100%);
   overflow: hidden;
 }
 
@@ -570,8 +596,8 @@ body {
   display: inline-block;
   padding: 15px 30px;
   background: transparent;
-  border: 2px solid var(--accent-goldenrod);
-  color: var(--accent-goldenrod);
+  border: 2px solid var(--accent-gold);
+  color: var(--accent-gold);
   text-decoration: none;
   font-size: 12px;
   font-weight: 600;
@@ -581,8 +607,8 @@ body {
 }
 
 .btn-services:hover {
-  background: var(--accent-goldenrod);
-  color: #1a1a1a;
+  background: var(--accent-gold);
+  color: var(--brown-900);
 }
 
 /* Enhanced hero section with floating elements */
@@ -598,7 +624,7 @@ body {
 
 .floating-element {
   position: absolute;
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(244, 208, 63, 0.2));
+  background: linear-gradient(135deg, rgba(212, 184, 150, 0.3), rgba(193, 158, 102, 0.2));
   border-radius: 50%;
   animation: float 6s ease-in-out infinite;
 }
@@ -638,10 +664,10 @@ body {
 .hero-badge {
   display: inline-block;
   padding: 8px 20px;
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(244, 208, 63, 0.3));
-  border: 1px solid rgba(212, 175, 55, 0.5);
+  background: linear-gradient(135deg, rgba(212, 184, 150, 0.2), rgba(193, 158, 102, 0.3));
+  border: 1px solid rgba(212, 184, 150, 0.5);
   border-radius: 25px;
-  color: var(--accent-goldenrod);
+  color: var(--accent-gold);
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
@@ -659,15 +685,15 @@ body {
 }
 
 .btn-services.secondary {
-  background: linear-gradient(135deg, var(--accent-goldenrod), #f4d03f);
-  color: #1a1a1a;
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-amber));
+  color: var(--brown-900);
   border: none;
 }
 
 .btn-services.secondary:hover {
-  background: linear-gradient(135deg, #f4d03f, var(--accent-goldenrod));
+  background: linear-gradient(135deg, var(--accent-amber), var(--accent-gold));
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+  box-shadow: var(--shadow-gold);
 }
 
 /* Scroll indicator matching Noda template */
@@ -691,7 +717,7 @@ body {
 .scroll-wheel {
   width: 4px;
   height: 8px;
-  background: var(--accent-goldenrod);
+  background: var(--accent-gold);
   border-radius: 2px;
   position: absolute;
   top: 8px;
@@ -752,8 +778,8 @@ body {
 .section-badge {
   display: inline-block;
   padding: 6px 16px;
-  background: linear-gradient(135deg, var(--accent-goldenrod), #f4d03f);
-  color: var(--text-white);
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-amber));
+  color: var(--brown-900);
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
@@ -899,10 +925,10 @@ body {
   transition: width 2s ease;
 }
 
-/* Services section with clean card design */
+/* Services section with elegant brown design */
 .services-section {
   padding: 120px 0;
-  background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(44, 85, 48, 0.9) 50%, rgba(30, 58, 33, 0.95) 100%),
+  background: linear-gradient(135deg, rgba(45, 27, 15, 0.95) 0%, rgba(74, 44, 23, 0.9) 50%, rgba(61, 36, 20, 0.95) 100%),
     url("./images/naildesign.webp") center / cover;
   position: relative;
 }
@@ -1015,8 +1041,8 @@ body {
 
 .service-btn {
   padding: 10px 20px;
-  background: linear-gradient(135deg, var(--accent-goldenrod), #f4d03f);
-  color: #1a1a1a;
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-amber));
+  color: var(--brown-900);
   border: none;
   border-radius: 20px;
   font-weight: 600;
@@ -1027,7 +1053,7 @@ body {
 
 .service-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+  box-shadow: var(--shadow-gold);
 }
 
 .service-content {
@@ -1298,7 +1324,7 @@ body {
 .form-group textarea:valid + label {
   top: -5px;
   font-size: 12px;
-  color: var(--accent-goldenrod);
+  color: var(--accent-gold);
   font-weight: 600;
 }
 
@@ -1308,7 +1334,7 @@ body {
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(135deg, var(--accent-goldenrod), #f4d03f);
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-amber));
   transition: width 0.3s ease;
 }
 
@@ -1340,7 +1366,7 @@ body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, var(--accent-goldenrod), #f4d03f);
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-amber));
   transition: left 0.3s ease;
 }
 
@@ -1363,10 +1389,10 @@ body {
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
-/* Clean footer design */
+/* Elegant footer design with brown theme */
 .footer {
-  background: #1a1a1a;
-  color: #fff;
+  background: var(--brown-900);
+  color: var(--text-cream);
   padding: 60px 0 30px;
 }
 
@@ -1379,7 +1405,7 @@ body {
 
 .footer-left h3 {
   font-size: 1.5rem;
-  color: var(--accent-goldenrod);
+  color: var(--accent-gold);
   margin-bottom: 10px;
 }
 
@@ -1401,7 +1427,7 @@ body {
 }
 
 .social-link:hover {
-  color: var(--accent-goldenrod);
+  color: var(--accent-gold);
 }
 
 .footer-bottom {
@@ -1874,8 +1900,8 @@ html {
 
 .nail-service-badge {
   display: inline-block;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-bronze));
+  color: var(--brown-900);
   padding: 0.3rem 0.8rem;
   border-radius: 20px;
   font-size: 0.8rem;
@@ -1946,13 +1972,13 @@ html {
 .nail-service-price {
   font-size: 1.1rem; /* Slightly reduced font size */
   font-weight: 700;
-  color: #ffd700;
+  color: var(--accent-gold);
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .nail-service-btn {
-  background: linear-gradient(135deg, #ffd700, #ffed4e);
-  color: #333;
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-amber));
+  color: var(--brown-900);
   border: none;
   padding: 0.6rem 1.2rem; /* Reduced padding */
   border-radius: 25px;
@@ -1962,7 +1988,7 @@ html {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   font-size: 0.75rem; /* Reduced font size */
-  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+  box-shadow: var(--shadow-gold);
 }
 
 /* Hover Effects */
@@ -2046,12 +2072,12 @@ html {
   }
 }
 
-/* Enhanced gallery section with new background and improved animations */
+/* Enhanced gallery section with elegant brown background */
 .gallery-section {
   padding: 120px 0;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, rgba(54, 94, 66, 0.95) 0%, rgba(44, 85, 48, 0.9) 50%, rgba(30, 58, 33, 0.95) 100%),
+  background: linear-gradient(135deg, rgba(74, 44, 23, 0.95) 0%, rgba(101, 67, 33, 0.9) 50%, rgba(61, 36, 20, 0.95) 100%),
     url("./images/naildesign.webp") center / cover;
 }
 
@@ -2098,7 +2124,7 @@ html {
 .filter-btn {
   padding: 12px 24px;
   background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(212, 175, 55, 0.3);
+  border: 2px solid rgba(212, 184, 150, 0.3);
   color: #fff;
   border-radius: 25px;
   font-weight: 500;
@@ -2109,11 +2135,11 @@ html {
 
 .filter-btn.active,
 .filter-btn:hover {
-  background: linear-gradient(135deg, var(--accent-goldenrod), #f4d03f);
-  color: #1a1a1a;
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-amber));
+  color: var(--brown-900);
   border-color: transparent;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+  box-shadow: var(--shadow-gold);
 }
 
 .gallery-grid.modern {
@@ -2211,8 +2237,8 @@ html {
 
 .gallery-btn {
   padding: 10px 20px;
-  background: linear-gradient(135deg, var(--accent-goldenrod), #f4d03f);
-  color: #1a1a1a;
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-amber));
+  color: var(--brown-900);
   border: none;
   border-radius: 25px;
   font-weight: 600;
@@ -2222,7 +2248,7 @@ html {
 
 .gallery-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+  box-shadow: var(--shadow-gold);
 }
 
 /* Added new Prices section styles */
@@ -2230,7 +2256,7 @@ html {
   padding: 120px 0;
   position: relative;
   overflow: hidden;
-  background: var(--gradient-400), url("./images/manikure.jpg") center / cover;
+  background: var(--gradient-600), url("./images/manikure.jpg") center / cover;
 }
 
 .prices-background {
@@ -2358,23 +2384,23 @@ html {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: rgba(212, 175, 55, 0.3);
+  background: rgba(212, 184, 150, 0.3);
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .dot.active,
 .dot:hover {
-  background: var(--accent-goldenrod);
+  background: var(--accent-gold);
   transform: scale(1.2);
 }
 
-/* Enhanced contact section with new background and single row layout */
+/* Enhanced contact section with elegant brown background */
 .contact-section {
   padding: 120px 0;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, rgba(44, 85, 48, 0.95) 0%, rgba(26, 26, 26, 0.9) 50%, rgba(30, 58, 33, 0.95) 100%),
+  background: linear-gradient(135deg, rgba(74, 44, 23, 0.95) 0%, rgba(45, 27, 15, 0.9) 50%, rgba(61, 36, 20, 0.95) 100%),
     url("./images/pedicure.jpg") center / cover;
 }
 
@@ -2460,7 +2486,7 @@ html {
   font-size: 2rem;
   width: 70px;
   height: 70px;
-  background: linear-gradient(135deg, var(--accent-goldenrod), #f4d03f);
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-amber));
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -2471,7 +2497,7 @@ html {
 
 .contact-card:hover .contact-icon {
   transform: scale(1.1) rotate(5deg);
-  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+  box-shadow: var(--shadow-gold);
 }
 
 .contact-details h4 {
@@ -2500,7 +2526,8 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 0;
+  padding: 5px 0; 
+  color: rgba(255, 255, 255, 0.8);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -2547,7 +2574,7 @@ html {
 }
 
 .modal-close:hover {
-  color: var(--accent-goldenrod);
+  color: var(--accent-gold);
   transform: scale(1.1);
 }
 
@@ -2568,7 +2595,7 @@ html {
 .modal-caption h4 {
   font-size: 1.5rem;
   margin-bottom: 10px;
-  color: var(--accent-goldenrod);
+  color: var(--accent-gold);
 }
 
 .modal-caption p {
@@ -2669,8 +2696,8 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(244, 208, 63, 0.04) 0%, transparent 50%);
+  background: radial-gradient(circle at 20% 80%, rgba(212, 184, 150, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(193, 158, 102, 0.04) 0%, transparent 50%);
   animation: floatingGlow 20s ease-in-out infinite;
   z-index: 1;
   will-change: opacity;
