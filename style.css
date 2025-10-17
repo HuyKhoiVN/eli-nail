@@ -5,6 +5,17 @@
   box-sizing: border-box;
 }
 
+/* Performance optimizations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
 :root {
   --green-100: #e6f0e6;
   --green-200: #a9cbb0;
@@ -253,13 +264,13 @@ body {
   pointer-events: none;
 }
 
-/* Parallax Animation */
+/* Optimized Parallax Animation - Reduced complexity */
 @keyframes foodParallax {
   0% {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateY(-100px);
+    transform: translate3d(0, -50px, 0);
   }
 }
 
@@ -349,7 +360,7 @@ body {
   z-index: 3;
 }
 
-/* Animated Food Background */
+/* Optimized Animated Food Background - Reduced complexity */
 .bg-food-animated {
   position: relative;
   background: linear-gradient(135deg, var(--bg-velvet) 0%, var(--secondary-mahogany) 50%, var(--glow-gold) 100%);
@@ -359,18 +370,19 @@ body {
 .bg-food-animated::before {
   content: "";
   position: absolute;
-  top: -50px;
+  top: -25px;
   left: 0;
   right: 0;
-  bottom: -50px;
+  bottom: -25px;
   background-image: url("./images/bg/bgf_1.jpg"), url("./images/bg/bgf_2.jpg"), url("./images/bg/bgf_3.jpg");
-  background-size: 33.333% 500px, 33.333% 500px, 33.333% 500px;
+  background-size: 33.333% 400px, 33.333% 400px, 33.333% 400px;
   background-position: 0% 0%, 33.333% 0%, 66.666% 0%;
   background-repeat: repeat-y;
-  opacity: 0.3;
+  opacity: 0.2;
   z-index: 1;
-  animation: slowFloat 30s ease-in-out infinite;
-  filter: brightness(0.9) contrast(1.1);
+  animation: slowFloat 60s ease-in-out infinite;
+  filter: brightness(0.9);
+  will-change: transform;
 }
 
 .bg-food-animated::after {
@@ -393,10 +405,10 @@ body {
 @keyframes slowFloat {
   0%,
   100% {
-    transform: translateY(0) scale(1);
+    transform: translate3d(0, 0, 0);
   }
   50% {
-    transform: translateY(-20px) scale(1.02);
+    transform: translate3d(0, -10px, 0);
   }
 }
 
@@ -507,12 +519,50 @@ body {
   }
 }
 
-/* Reduced motion */
+/* Reduced motion and performance optimizations */
 @media (prefers-reduced-motion: reduce) {
+  .bg-food::before,
+  .bg-food-animated::before,
+  .bg-food-glow::after,
+  .floating-element,
+  .scroll-wheel,
+  .service-icon {
+    animation: none !important;
+  }
+  
+  .nail-service-card:hover .nail-card-inner {
+    transform: none !important;
+  }
+}
+
+/* Performance optimization for low-end devices */
+@media (max-width: 768px) {
   .bg-food::before,
   .bg-food-animated::before,
   .bg-food-glow::after {
     animation: none;
+  }
+  
+  .floating-element {
+    display: none;
+  }
+  
+  .nail-service-card:hover .nail-card-inner {
+    transform: none;
+  }
+  
+  .gallery-item:hover {
+    transform: none;
+  }
+}
+
+/* High DPI display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .gallery-item img,
+  .nail-service-image img,
+  .price-card img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
   }
 }
 
@@ -1602,9 +1652,27 @@ body {
   animation: shimmer 2s infinite;
 }
 
-/* Smooth scrolling enhancement */
+/* Smooth scrolling enhancement with performance optimization */
 html {
   scroll-behavior: smooth;
+}
+
+/* GPU acceleration for better performance */
+.floating-element,
+.nail-service-card,
+.gallery-item,
+.contact-card,
+.price-card {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Reduce repaints and reflows */
+.gallery-item img,
+.nail-service-image img,
+.price-card img {
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 /* Loading states */
@@ -2507,48 +2575,48 @@ html {
   opacity: 0.8;
 }
 
-/* Enhanced animations and hover effects for all sections */
+/* Optimized animations with GPU acceleration */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translate3d(0, 20px, 0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes fadeInScale {
   from {
     opacity: 0;
-    transform: scale(0.9);
+    transform: translate3d(0, 0, 0) scale(0.95);
   }
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
   }
 }
 
 @keyframes slideInLeft {
   from {
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translate3d(-20px, 0, 0);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes slideInRight {
   from {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translate3d(20px, 0, 0);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -2568,22 +2636,29 @@ html {
   animation: slideInRight 0.8s ease-out forwards;
 }
 
-/* Enhanced hover effects for service cards */
+/* Optimized hover effects for service cards */
+.nail-service-card {
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
 .nail-service-card:hover {
-  transform: translateY(-15px) scale(1.02);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.2);
+  transform: translate3d(0, -10px, 0) scale(1.01);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .nail-service-card:hover .nail-service-image img {
-  transform: scale(1.1) rotate(2deg);
+  transform: translate3d(0, 0, 0) scale(1.05);
 }
 
-/* Enhanced section backgrounds with parallax effect */
+/* Optimized section backgrounds with reduced complexity */
 .hero,
 .services-section,
 .gallery-section,
 .contact-section {
   position: relative;
+  contain: layout style paint;
 }
 
 .hero::before,
@@ -2594,21 +2669,20 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(244, 208, 63, 0.08) 0%, transparent 50%);
-  animation: floatingGlow 10s ease-in-out infinite;
+  background: radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(244, 208, 63, 0.04) 0%, transparent 50%);
+  animation: floatingGlow 20s ease-in-out infinite;
   z-index: 1;
+  will-change: opacity;
 }
 
 @keyframes floatingGlow {
   0%,
   100% {
-    opacity: 0.3;
-    transform: translateY(0px);
+    opacity: 0.2;
   }
   50% {
-    opacity: 0.6;
-    transform: translateY(-10px);
+    opacity: 0.4;
   }
 }
 

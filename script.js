@@ -22,64 +22,82 @@ $(document).ready(() => {
     $(".section-subtitle").addClass("animate-fade-up animate-delay-3")
   }
 
+  // Cache DOM elements for better performance
+  const $serviceCards = $(".service-card.modern, .nail-service-card")
+  const $galleryItems = $(".gallery-item")
+  const $contactCards = $(".contact-card")
+  const $priceCards = $(".price-card")
+  const $sectionHeaders = $(".section-header")
+
   function animateOnScroll() {
     const windowTop = $(window).scrollTop()
     const windowBottom = windowTop + $(window).height()
 
-    // Service cards with enhanced stagger animation
-    $(".service-card.modern, .nail-service-card").each(function (index) {
+    // Service cards with enhanced stagger animation (optimized)
+    $serviceCards.each(function (index) {
+      if ($(this).hasClass("animate-scale")) return // Skip if already animated
+      
       const elementTop = $(this).offset().top
       const elementBottom = elementTop + $(this).outerHeight()
 
       if (elementBottom > windowTop && elementTop < windowBottom - 100) {
         setTimeout(() => {
           $(this).addClass("animate-scale")
-        }, index * 150)
+        }, index * 100) // Reduced delay
       }
     })
 
-    // Gallery items with enhanced animation
-    $(".gallery-item").each(function (index) {
+    // Gallery items with enhanced animation (optimized)
+    $galleryItems.each(function (index) {
+      if ($(this).hasClass("animate-in")) return // Skip if already animated
+      
       const elementTop = $(this).offset().top
       const elementBottom = elementTop + $(this).outerHeight()
 
       if (elementBottom > windowTop && elementTop < windowBottom - 100) {
         setTimeout(() => {
           $(this).addClass("animate-in")
-        }, index * 100)
+        }, index * 50) // Reduced delay
       }
     })
 
-    // Contact cards animation
-    $(".contact-card").each(function (index) {
+    // Contact cards animation (optimized)
+    $contactCards.each(function (index) {
+      if ($(this).hasClass("animate-slide-right")) return // Skip if already animated
+      
       const elementTop = $(this).offset().top
       const elementBottom = elementTop + $(this).outerHeight()
 
       if (elementBottom > windowTop && elementTop < windowBottom - 100) {
         setTimeout(() => {
           $(this).addClass("animate-slide-right")
-        }, index * 150)
+        }, index * 100) // Reduced delay
       }
     })
 
-    // Price cards animation
-    $(".price-card").each(function (index) {
+    // Price cards animation (optimized)
+    $priceCards.each(function (index) {
+      if ($(this).hasClass("animate-scale")) return // Skip if already animated
+      
       const elementTop = $(this).offset().top
       const elementBottom = elementTop + $(this).outerHeight()
 
       if (elementBottom > windowTop && elementTop < windowBottom - 100) {
         setTimeout(() => {
           $(this).addClass("animate-scale")
-        }, index * 200)
+        }, index * 150) // Reduced delay
       }
     })
 
-    // Section headers animation
-    $(".section-header").each(function () {
+    // Section headers animation (optimized)
+    $sectionHeaders.each(function () {
+      if ($(this).hasClass("animated")) return // Skip if already animated
+      
       const elementTop = $(this).offset().top
       const elementBottom = elementTop + $(this).outerHeight()
 
       if (elementBottom > windowTop && elementTop < windowBottom - 100) {
+        $(this).addClass("animated")
         $(this).find(".section-badge").addClass("animate-scale")
         $(this).find(".section-title").addClass("animate-in")
         $(this).find(".section-subtitle").addClass("animate-in")
@@ -127,25 +145,32 @@ $(document).ready(() => {
     $(this).addClass("active")
   })
 
-  // Header Background Change on Scroll
+  // Throttled scroll handler for better performance
+  let scrollTimeout = null
   $(window).scroll(function () {
-    const scrollTop = $(this).scrollTop()
-
-    // Subtle parallax for floating elements only
-    $(".floating-element").each(function (index) {
-      const speed = 0.1 + index * 0.05
-      $(this).css("transform", `translateY(${scrollTop * speed}px)`)
-    })
-
-    // Update existing scroll functions
-    if (scrollTop > 100) {
-      $(".header").addClass("scrolled")
-    } else {
-      $(".header").removeClass("scrolled")
+    if (scrollTimeout) {
+      clearTimeout(scrollTimeout)
     }
+    
+    scrollTimeout = setTimeout(() => {
+      const scrollTop = $(window).scrollTop()
 
-    updateActiveNav()
-    animateOnScroll()
+      // Optimized parallax for floating elements only (reduced frequency)
+      $(".floating-element").each(function (index) {
+        const speed = 0.05 + index * 0.02 // Reduced speed for better performance
+        $(this).css("transform", `translateY(${scrollTop * speed}px)`)
+      })
+
+      // Update existing scroll functions
+      if (scrollTop > 100) {
+        $(".header").addClass("scrolled")
+      } else {
+        $(".header").removeClass("scrolled")
+      }
+
+      updateActiveNav()
+      animateOnScroll()
+    }, 16) // ~60fps throttling
   })
 
   // Update Active Navigation
@@ -289,12 +314,13 @@ $(document).ready(() => {
     startX = 0
   })
 
-  // Auto-play carousel (optional)
-  setInterval(() => {
-    if ($(".prices-section").is(":visible")) {
+  // Optimized auto-play carousel with visibility check
+  let carouselInterval = setInterval(() => {
+    const pricesSection = document.querySelector(".prices-section")
+    if (pricesSection && pricesSection.offsetParent !== null) {
       window.slideCarousel(1)
     }
-  }, 5000)
+  }, 8000) // Increased interval for better performance
 
   $(".price-card").hover(
     function () {
@@ -369,13 +395,28 @@ $(document).ready(() => {
   // Add smooth scrolling for better UX
   $("html").css("scroll-behavior", "smooth")
 
-  // Performance optimization: Preload images on hover
+  // Performance optimization: Preload images on hover and lazy load
   $(".nail-service-card").one("mouseenter", function () {
     const img = $(this).find("img")[0]
     if (img && !img.complete) {
       img.loading = "eager"
     }
   })
+
+  // Lazy loading for images not in viewport
+  const lazyImages = document.querySelectorAll('img[data-src]')
+  const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target
+        img.src = img.dataset.src
+        img.removeAttribute('data-src')
+        observer.unobserve(img)
+      }
+    })
+  })
+
+  lazyImages.forEach(img => imageObserver.observe(img))
 })
 
 // Additional CSS classes for enhanced interactions
